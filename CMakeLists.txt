@@ -20,6 +20,7 @@ set(HEADER_FILES
         MainProgramClasses/Headers/ALU.h
         MainProgramClasses/Headers/Machine.h
         MainProgramClasses/Headers/Instruction.h
+        Utilities/NumbersConvertor.h
 )
 
 set(SOURCE_FILES
@@ -34,6 +35,8 @@ set(SOURCE_FILES
         MainProgramClasses/CPP_Implementation/ALU.cpp
         MainProgramClasses/CPP_Implementation/Machine.cpp
         MainProgramClasses/CPP_Implementation/Instruction.cpp
+        Utilities/NumbersConvertor.cpp
+        main.cpp
 )
 
 
