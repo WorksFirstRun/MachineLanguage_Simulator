@@ -1,0 +1,14 @@
+//
+// Created by toose on 10/23/2024.
+//
+
+#ifndef MACHINELANGUAGE_SIMULATOR_REGISTER_H
+#define MACHINELANGUAGE_SIMULATOR_REGISTER_H
+
+
+class Register {
+
+};
+
+
+#endif //MACHINELANGUAGE_SIMULATOR_REGISTER_H
