@@ -1,13 +1,17 @@
-//
-// Created by toose on 10/23/2024.
-//
+
 
 #ifndef MACHINELANGUAGE_SIMULATOR_PROGRAMCOUNTER_H
 #define MACHINELANGUAGE_SIMULATOR_PROGRAMCOUNTER_H
 
+#include "Register.h"
+#include "Memory.h"
+#include <iostream>
+using namespace std;
 
-class ProgramCounter {
-
+class ProgramCounter : public Register {
+public:
+    ProgramCounter(Byte StartingAddress);
+    Byte Fetch(Memory & memory);
 };
 
 

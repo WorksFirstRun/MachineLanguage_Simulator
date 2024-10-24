@@ -5,8 +5,17 @@
 #ifndef MACHINELANGUAGE_SIMULATOR_REGISTER_H
 #define MACHINELANGUAGE_SIMULATOR_REGISTER_H
 
+#include <iostream>
+#include "../../SmallClasses/Headers/Byte.h"
+using namespace std;
 
 class Register {
+protected:
+    Byte byte;
+public:
+    Byte GetByte();
+    void SetByte(Byte b);
+    void ClearByte();
 
 };
 
