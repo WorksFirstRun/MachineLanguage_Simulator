@@ -30,5 +30,6 @@ int Byte::GetByte() {
 }
 
 void Byte::SetByte(int b) {
+    b = b % 256;
     B = b;
 }
