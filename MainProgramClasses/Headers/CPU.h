@@ -13,17 +13,21 @@ class CPU {
 private:
     Register registers[16];
     ControlUnit cu;
+    static CPU * Instance; // single tone Pattern
+    CPU(Memory &mem, Screen &scr);
     Memory & memory;
     Screen & screen;
-    static CPU Instance; // single tone Pattern
-    CPU(); // single tone Pattern
 public:
-    void InitializeCPU_SingleTone();
+    static CPU * GetInstance();
+    Register & GetRegisterAtCell(int cellIndex);
+    Memory & GetMemory();
+    Screen & GetScreen();
+    void InitializeMemory(Memory & m);
     void RunEntireCycle();
     ~CPU();
     // maybe we should consider 3 more functions for each step (fetch , decode, execute)
-
 };
+
 
 
 #endif //MACHINELANGUAGE_SIMULATOR_CPU_H

@@ -14,3 +14,5 @@ void Screen::PrintValueToFile(string value, string fileName) {
         throw ios_base::failure("Failed to open file: " + fileName); // this should not happen
     }
 }
+
+Screen::Screen() = default;

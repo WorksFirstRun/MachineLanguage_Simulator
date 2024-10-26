@@ -10,7 +10,8 @@ using namespace std;
 
 class ProgramCounter : public Register {
 public:
-    ProgramCounter(Byte StartingAddress);
+    ProgramCounter();
+    void SetStartingAddress(Byte StartingAddress);
     Byte Fetch(Memory & memory);
 };
 

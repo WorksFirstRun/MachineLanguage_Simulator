@@ -1,9 +1,6 @@
 
 #include "../Headers/ProgramCounter.h"
 
-ProgramCounter::ProgramCounter(Byte StartingAddress) {
-    byte = StartingAddress;
-}
 
 Byte ProgramCounter::Fetch(Memory & memory) {
 
@@ -11,3 +8,9 @@ Byte ProgramCounter::Fetch(Memory & memory) {
     byte.SetByte((byte.GetByte() + 1) % 256);
     return memoryCell;
 }
+
+void ProgramCounter::SetStartingAddress(Byte StartingAddress){
+    byte= StartingAddress;
+}
+
+ProgramCounter::ProgramCounter() = default;

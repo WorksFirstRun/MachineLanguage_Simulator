@@ -15,3 +15,5 @@ void Register::SetByte(Byte b) {
 void Register::ClearByte() {
     byte.SetByte(0);
 }
+
+Register::Register() = default;
