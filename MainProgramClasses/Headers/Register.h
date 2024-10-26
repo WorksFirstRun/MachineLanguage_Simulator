@@ -13,6 +13,7 @@ class Register {
 protected:
     Byte byte;
 public:
+    Register();
     Byte GetByte();
     void SetByte(Byte b);
     void ClearByte();

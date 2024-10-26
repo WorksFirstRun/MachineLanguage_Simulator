@@ -7,7 +7,7 @@
 using namespace std;
 
 class Instruction {
-private:
+protected:
     Byte R;
     Byte XY;
 public:
