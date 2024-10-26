@@ -1,11 +1,14 @@
 
 #include "../Headers/ProgramCounter.h"
+#include "../Headers/CPU.h"
 
-
-Byte ProgramCounter::Fetch(Memory & memory) {
-
-    Byte memoryCell = memory.GetCellAtIndex(byte.GetByte());
-    byte.SetByte((byte.GetByte() + 1) % 256);
+Byte ProgramCounter::Fetch() {
+    if (byte.GetByte() > 255){
+        // end the program since it reached end of the ram
+        CPU::GetInstance()->TerminateProgram();
+    }
+    Byte memoryCell = CPU::GetInstance()->GetMemory().GetCellAtIndex(byte.GetByte());
+    byte.SetByte((byte.GetByte() + 1));
     return memoryCell;
 }
 

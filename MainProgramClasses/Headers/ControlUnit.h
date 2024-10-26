@@ -8,8 +8,8 @@ using namespace std;
 
 class ControlUnit {
 private:
-    ProgramCounter pc;
-    InstructionRegister ir;
+    ProgramCounter  pc;
+    InstructionRegister  ir;
 public:
     ProgramCounter & GetProgramCounter();
     InstructionRegister & GetInstructionRegister();

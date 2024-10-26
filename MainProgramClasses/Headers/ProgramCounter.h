@@ -5,6 +5,7 @@
 
 #include "Register.h"
 #include "Memory.h"
+class CPU;
 #include <iostream>
 using namespace std;
 
@@ -12,7 +13,7 @@ class ProgramCounter : public Register {
 public:
     ProgramCounter();
     void SetStartingAddress(Byte StartingAddress);
-    Byte Fetch(Memory & memory);
+    Byte Fetch();
 };
 
 
