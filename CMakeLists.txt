@@ -37,6 +37,7 @@ set(SOURCE_FILES
         MainProgramClasses/CPP_Implementation/Instruction.cpp
         Utilities/NumbersConvertor.cpp
         MainProgramClasses/CPP_Implementation/Instructions_CPP/Instructions_CPP.cpp
+        main.cpp
 )
 
 

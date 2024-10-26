@@ -12,9 +12,9 @@ using namespace std;
 class CPU {
 private:
     Register registers[16];
-    ControlUnit cu;
+    ControlUnit & cu;
     static CPU * Instance; // single tone Pattern
-    CPU(Memory &mem, Screen &scr);
+    CPU(Memory &mem, Screen &scr,ControlUnit & c);
     Memory & memory;
     Screen & screen;
 public:
@@ -22,12 +22,12 @@ public:
     Register & GetRegisterAtCell(int cellIndex);
     Memory & GetMemory();
     Screen & GetScreen();
+    ControlUnit & GetControlUnit();
     void InitializeMemory(Memory & m);
     void RunEntireCycle();
+    void TerminateProgram();
     ~CPU();
     // maybe we should consider 3 more functions for each step (fetch , decode, execute)
 };
-
-
 
 #endif //MACHINELANGUAGE_SIMULATOR_CPU_H
