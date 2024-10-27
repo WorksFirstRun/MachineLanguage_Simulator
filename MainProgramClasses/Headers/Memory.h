@@ -12,7 +12,8 @@ class Memory {
 private:
     Byte  cells[256];
 public:
-    void Initialize(Byte c[256]);
+    Memory();
+    void Initialize(Byte c[256],int memoryCells);
     void Clear();
     void WriteAtCell(int cellIndex,Byte Value);
     Byte GetCellAtIndex(int index);

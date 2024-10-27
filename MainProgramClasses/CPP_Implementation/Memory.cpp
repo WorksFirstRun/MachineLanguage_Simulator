@@ -1,10 +1,17 @@
 
 #include "../Headers/Memory.h"
-
-void Memory::Initialize(Byte *c) {
+Memory::Memory(){
+    for(int i=0;i<256;i++){
+        cells[i]=0;
+    }
+}
+void Memory::Initialize(Byte *c,int memoryCells) {
+    int i=0;
     for (Byte & b : cells){
         b = *c;
-        c++;
+        i++;
+        if(i<memoryCells){c++;}
+        else{ break;}
     }
 }
 

@@ -13,6 +13,7 @@ public:
     static Byte Xor(Byte a, Byte b);
     static unsigned int Right_cycle(unsigned int a,int steps);
     static bool areBothEqual(Byte a, Byte b);
+    static bool IsBigger(Byte a, Byte b);
 };
 
 
