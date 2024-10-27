@@ -1,13 +1,10 @@
 
 #include "../Headers/Memory.h"
-void Memory::Initialize(Byte *c,int instructionsNumber) {
-    int i=0;
+
+void Memory::Initialize(Byte *c) {
     for (Byte & b : cells){
         b = *c;
-        i++;
-        if(i<instructionsNumber){c++;}
-        else{ break;}
-
+        c++;
     }
 }
 
@@ -23,10 +20,4 @@ void Memory::WriteAtCell(int cellIndex, Byte Value) {
 
 Byte Memory::GetCellAtIndex(int index) {
     return cells[index];
-}
-
-Memory::Memory(){
-    for(auto & cell : cells){
-        cell=0;
-    }
 }
