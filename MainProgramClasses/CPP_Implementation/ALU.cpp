@@ -36,3 +36,6 @@ unsigned int ALU::Right_cycle(unsigned int a,int steps){
 bool ALU::areBothEqual(Byte a, Byte b) {
     return a.GetByte() == b.GetByte();
 }
+bool ALU::IsBigger(Byte a, Byte b) {
+    return a.GetByte()>b.GetByte();
+}

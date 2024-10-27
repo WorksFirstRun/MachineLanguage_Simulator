@@ -3,15 +3,23 @@
 
 #include "CPU.h"
 #include "Memory.h"
+#include "vector"
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 class Machine {
 private:
-    CPU cpu;
+    CPU* cpu;
     Memory & memory;
+
+    // Helper methods for validation
+    bool isValidHexPair(const string& hexPair) const;
+    void validateMemoryContent(const vector<Byte>& content) const;
+
 public:
-    Machine(string fileName); // uses the fileName to initialze the memory using its own method
+    Machine(string fileName);
+    ~Machine();
 };
 
 
