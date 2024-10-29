@@ -3,7 +3,7 @@
 
 char Screen::PrintValueToTerminal(string value) {
     char v = (char) NumbersConvertor::RepresentHexAsInteger(value);
-    cout <<  NumbersConvertor::RepresentHexAsInteger(value) << endl;
+    cout << (char) NumbersConvertor::RepresentHexAsInteger(value) << endl;
     return v;
 }
 
