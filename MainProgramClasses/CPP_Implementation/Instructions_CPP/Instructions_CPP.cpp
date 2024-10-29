@@ -80,6 +80,20 @@ class Instruction5 : public Instruction{
     }
 };
 
+class Instruction6 : public Instruction{
+    void Execute() override{
+        string RegisterLocation1 = string(1,'0') + R.GetByteInHex()[1];
+        string RegisterLocation2 = string(1, '0') + XY.GetByteInHex()[0];
+        string RegisterLocation3 = string(1,'0') + XY.GetByteInHex()[1];
+        Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
+        Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
+        Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
+        Byte NewByte = ALU::FloatingPointAdd(r2.GetByte(),r3.GetByte());
+        r1.SetByte(NewByte);
+    }
+};
+
+
 class Instruction7:public Instruction{
     void Execute() override{
         string RegisterLocation2 = string(1,'0') + XY.GetByteInHex()[0];
@@ -88,9 +102,7 @@ class Instruction7:public Instruction{
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
-        Byte NewValue = ALU::add(r2.GetByte(),r3.GetByte());
-        r1.SetByte(NewValue);
-        Byte New=ALU::Bitwise_Or(r2.GetByte(),r3.GetByte());
+        Byte New = ALU::Bitwise_Or(r2.GetByte(),r3.GetByte());
         r1.SetByte(New);
     }
 };
@@ -120,11 +132,11 @@ class Instruction9:public Instruction{
 };
 class InstructionA:public Instruction{
     void Execute() override{
-        string  RegisterLocation=string (1,'0')+R.GetByteInHex()[1];
-        Register &r=CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
-        int steps =NumbersConvertor::RepresentHexAsInteger(string (1,(XY.GetByteInHex()[1])));
-        unsigned int Regist=r.GetByte().GetByte();
-        Byte New=ALU::Right_cycle(Regist,steps);
+        string  RegisterLocation = string(1,'0')+R.GetByteInHex()[1];
+        Register &r = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
+        int steps = NumbersConvertor::RepresentHexAsInteger(string(1,(XY.GetByteInHex()[1])));
+        unsigned int Regist = r.GetByte().GetByte();
+        Byte New = ALU::Right_cycle(Regist,steps);
         r.SetByte(New);
     }
 };

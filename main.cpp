@@ -1,14 +1,12 @@
-
-#include "MainProgramClasses/Headers//CPU.h"
-#include "MainProgramClasses//Headers/Memory.h"
-#include "SmallClasses/Headers/Byte.h"
 #include <iostream>
+#include "MainProgramClasses/Headers/CPU.h"
 using namespace std;
 
 
+
 int main(){
-    int t=5;//number of instruction
-    Byte input[10];
+    int t=6;//number of instruction
+    Byte input[12];
     int j = 0;
     for(int i=0;i<t;i++){
         string in;
@@ -24,9 +22,6 @@ int main(){
     cpu->GetControlUnit().GetProgramCounter().SetStartingAddress(0);
 
     cpu->RunEntireCycle();
-
-
-
 
 
     return 0;

@@ -1,8 +1,10 @@
 #include "../Headers/Screen.h"
 #include "../../Utilities/NumbersConvertor.h"
 
-void Screen::PrintValueToTerminal(string value) {
-    cout << NumbersConvertor::RepresentHexAsInteger(value) << endl;
+char Screen::PrintValueToTerminal(string value) {
+    char v = (char) NumbersConvertor::RepresentHexAsInteger(value);
+    cout <<  NumbersConvertor::RepresentHexAsInteger(value) << endl;
+    return v;
 }
 
 void Screen::PrintValueToFile(string value, string fileName) {

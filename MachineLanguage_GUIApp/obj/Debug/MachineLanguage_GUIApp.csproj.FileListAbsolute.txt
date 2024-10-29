@@ -1,0 +1,10 @@
+D:\RiderSolutions\MachineLanguage_GUIApp\bin\Debug\MachineLanguage_GUIApp.exe.config
+D:\RiderSolutions\MachineLanguage_GUIApp\bin\Debug\MachineLanguage_GUIApp.exe
+D:\RiderSolutions\MachineLanguage_GUIApp\bin\Debug\MachineLanguage_GUIApp.pdb
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.csproj.AssemblyReference.cache
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.Properties.Resources.resources
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.csproj.GenerateResource.cache
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.csproj.CoreCompileInputs.cache
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.exe
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.pdb
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.Form1.resources

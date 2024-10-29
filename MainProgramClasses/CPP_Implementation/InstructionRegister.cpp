@@ -11,12 +11,10 @@ InstructionRegister::InstructionRegister() {
     instructions['3'] = new Instruction3();
     instructions['4'] = new Instruction4();
     instructions['5'] = new Instruction5();
-    // instructions['6']
+    instructions['6'] = new Instruction6();
     instructions['7']=  new Instruction7();
     instructions['8']=  new Instruction8();
     instructions['9']=  new Instruction9();
-
-    // instructionas['6']
     instructions['a']=  new InstructionA();
     instructions['b'] = new InstructionB();
     instructions['c'] = new InstructionC();
