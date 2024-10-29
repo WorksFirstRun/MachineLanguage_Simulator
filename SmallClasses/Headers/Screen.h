@@ -8,7 +8,7 @@ using namespace std;
 class Screen {
 public:
     Screen();
-    void PrintValueToTerminal(string value);
+    char PrintValueToTerminal(string value);
     void PrintValueToFile(string value,string fileName);
 };
 
