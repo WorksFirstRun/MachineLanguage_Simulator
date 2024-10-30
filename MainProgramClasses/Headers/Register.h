@@ -6,16 +6,16 @@
 #define MACHINELANGUAGE_SIMULATOR_REGISTER_H
 
 #include <iostream>
-#include "../../SmallClasses/Headers/Byte.h"
+#include "../../SmallClasses/Headers/MLByte.h"
 using namespace std;
 
 class Register {
 protected:
-    Byte byte;
+    MLByte byte;
 public:
     Register();
-    Byte GetByte();
-    void SetByte(Byte b);
+    MLByte GetByte();
+    void SetByte(MLByte b);
     void ClearByte();
 
 };

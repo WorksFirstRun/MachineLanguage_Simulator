@@ -1,4 +1,4 @@
-
+#include "pch.h"
 #include "../Headers/ControlUnit.h"
 
 ControlUnit::ControlUnit() = default;

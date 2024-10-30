@@ -17,6 +17,7 @@ private:
     CPU(Memory &mem, Screen &scr,ControlUnit & c);
     Memory & memory;
     Screen & screen;
+    bool endOfCycle;
 public:
     static CPU * GetInstance();
     Register & GetRegisterAtCell(int cellIndex);
@@ -25,9 +26,10 @@ public:
     ControlUnit & GetControlUnit();
     void InitializeMemory(Memory & m);
     void RunEntireCycle();
+    void RunOneCycle();
     void TerminateProgram();
+    bool isTerminated();
     ~CPU();
-    // maybe we should consider 3 more functions for each step (fetch , decode, execute)
 };
 
 #endif //MACHINELANGUAGE_SIMULATOR_CPU_H

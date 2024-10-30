@@ -1,7 +1,6 @@
 
-#ifndef MACHINELANGUAGE_SIMULATOR_INSTRUCTIONS_CPP
-#define MACHINELANGUAGE_SIMULATOR_INSTRUCTIONS_CPP
-
+#ifndef MACHINELANGUAGESIMULATORLOGICLIBRARY
+#define MACHINELANGUAGESIMULATORLOGICLIBRARY
 #include "../../Headers/Instruction.h"
 #include <iostream>
 #include "../../Headers/Register.h"
@@ -42,7 +41,7 @@ class Instruction3 : public Instruction{
             string RegisterLocation = string(1,'0') + R.GetByteInHex()[1];
             Register & r = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
             Screen & s = CPU::GetInstance()->GetScreen();
-            Byte value = r.GetByte();
+            MLByte value = r.GetByte();
             s.PrintValueToTerminal(NumbersConvertor::RepresentIntegerAsHex(value.GetByte()));
         }
         else{
@@ -75,7 +74,7 @@ class Instruction5 : public Instruction{
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocationNewResult));
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocationXYFirst));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocationXYSecond));
-        Byte NewValue = ALU::add(r2.GetByte(),r3.GetByte());
+        MLByte NewValue = ALU::add(r2.GetByte(),r3.GetByte());
         r1.SetByte(NewValue);
     }
 };
@@ -88,7 +87,7 @@ class Instruction6 : public Instruction{
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
-        Byte NewByte = ALU::FloatingPointAdd(r2.GetByte(),r3.GetByte());
+        MLByte NewByte = ALU::FloatingPointAdd(r2.GetByte(),r3.GetByte());
         r1.SetByte(NewByte);
     }
 };
@@ -102,7 +101,7 @@ class Instruction7:public Instruction{
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
-        Byte New = ALU::Bitwise_Or(r2.GetByte(),r3.GetByte());
+        MLByte New = ALU::Bitwise_Or(r2.GetByte(),r3.GetByte());
         r1.SetByte(New);
     }
 };
@@ -114,7 +113,7 @@ class Instruction8:public Instruction{
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
-        Byte New=ALU::Bitwise_And(r2.GetByte(),r3.GetByte());
+        MLByte New=ALU::Bitwise_And(r2.GetByte(),r3.GetByte());
         r1.SetByte(New);
     }
 };
@@ -126,7 +125,7 @@ class Instruction9:public Instruction{
         Register & r2 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation2));
         Register & r3 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation3));
         Register & r1 = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation1));
-        Byte New=ALU::Xor(r2.GetByte(),r3.GetByte());
+        MLByte New=ALU::Xor(r2.GetByte(),r3.GetByte());
         r1.SetByte(New);
     }
 };
@@ -136,7 +135,7 @@ class InstructionA:public Instruction{
         Register &r = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
         int steps = NumbersConvertor::RepresentHexAsInteger(string(1,(XY.GetByteInHex()[1])));
         unsigned int Regist = r.GetByte().GetByte();
-        Byte New = ALU::Right_cycle(Regist,steps);
+        MLByte New = ALU::Right_cycle(Regist,steps);
         r.SetByte(New);
     }
 };
@@ -148,7 +147,7 @@ class InstructionB : public Instruction{
         Register & r = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
         Register & r0 = CPU::GetInstance()->GetRegisterAtCell(0);
         if (ALU::areBothEqual(r.GetByte(),r0.GetByte())){
-            Byte NewPattern = XY.GetByte();
+            MLByte NewPattern = XY.GetByte();
             CPU::GetInstance()->GetControlUnit().GetProgramCounter().SetStartingAddress(NewPattern);
         }
     }
@@ -167,12 +166,12 @@ class InstructionD:public Instruction{
         Register & r = CPU::GetInstance()->GetRegisterAtCell(NumbersConvertor::RepresentHexAsInteger(RegisterLocation));
         Register & r0 = CPU::GetInstance()->GetRegisterAtCell(0);
         if (ALU::IsBigger(r.GetByte(),r0.GetByte())){
-            Byte NewPattern = XY.GetByte();
+            MLByte NewPattern = XY.GetByte();
             CPU::GetInstance()->GetControlUnit().GetProgramCounter().SetStartingAddress(NewPattern);
         }
     }
 };
-#endif // MACHINELANGUAGE_SIMULATOR_INSTRUCTIONS_CPP
+#endif // MACHINELANGUAGESIMULATORLOGICLIBRARY
 
 
 

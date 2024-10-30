@@ -5,24 +5,24 @@
 
 
 #include <iostream>
-#include "../../SmallClasses/Headers/Byte.h"
+#include "../../SmallClasses/Headers/MLByte.h"
 using namespace std;
 
 class Memory {
 private:
-    Byte cells[256];
+    MLByte cells[256];
 public:
     Memory();
 
-    void Initialize(Byte c[256], int memoryCells);
+    void Initialize(MLByte c[256], int memoryCells);
 
     void Clear();
 
-    void WriteAtCell(int cellIndex, Byte Value);
+    void WriteAtCell(int cellIndex, MLByte Value);
 
-    Byte GetCellAtIndex(int index);
+    MLByte GetCellAtIndex(int index);
 
-    void Initialize_at_Adress(Byte *c, int memoryCells, int Cell_Index);
+    void Initialize_at_Adress(MLByte *c, int memoryCells, int startAddress);
 };
 
 

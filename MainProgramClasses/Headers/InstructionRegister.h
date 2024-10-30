@@ -13,7 +13,7 @@ private:
     unordered_map<char,Instruction *> instructions;
 public:
     InstructionRegister(); // initialize the instructions from 1 -> C
-    void Decode(char operand,Byte R,Byte XY);
+    void Decode(char operand,MLByte R,MLByte XY);
     Instruction * GetInstruction();
     ~InstructionRegister();
 };

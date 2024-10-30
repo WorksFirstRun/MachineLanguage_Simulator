@@ -12,8 +12,8 @@ using namespace std;
 class ProgramCounter : public Register {
 public:
     ProgramCounter();
-    void SetStartingAddress(Byte StartingAddress);
-    Byte Fetch();
+    void SetStartingAddress(MLByte StartingAddress);
+    MLByte Fetch();
 };
 
 

@@ -5,12 +5,12 @@
 #include "../../Utilities/NumbersConvertor.h"
 using namespace std;
 
-class Byte {
+class MLByte {
 private:
     int B; // 8 bits integer 0->255
 public:
-    Byte();
-    Byte(int b);
+    MLByte();
+    MLByte(int b);
     string GetByteInHex();
     void SetByteInHex(string hexa);
     void SetByteInBinary(string binary);

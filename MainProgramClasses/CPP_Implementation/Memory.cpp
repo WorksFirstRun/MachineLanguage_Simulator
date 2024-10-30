@@ -1,38 +1,42 @@
-
+#include "pch.h"
 #include "../Headers/Memory.h"
 Memory::Memory(){
     for(int i=0;i<256;i++){
         cells[i]=0;
     }
 }
-void Memory::Initialize(Byte *c,int memoryCells) {
-    int i=0;
-    for (Byte & b : cells){
+
+void Memory::Initialize(MLByte c[256], int memoryCells)
+{
+    int i = 0;
+    for (MLByte& b : cells) {
         b = *c;
         i++;
-        if(i<memoryCells){c++;}
-        else{ break;}
+        if (i < memoryCells) { c++; }
+        else { break; }
     }
 }
-void Memory::Initialize_at_Adress(Byte *c,int memoryCells,int Cell_Index){
-    int temp=Cell_Index;
+
+
+void Memory::Initialize_at_Adress(MLByte *c,int memoryCells,int startAddress){
+    int temp = startAddress;
     for(int k=0;k<memoryCells;k++ ){
         cells[temp]=*c;
         c++;
         temp++;
-
     }
 }
+
 void Memory::Clear() {
-    for (Byte & b : cells){
+    for (MLByte & b : cells){
         b.SetByte(0);
     }
 }
 
-void Memory::WriteAtCell(int cellIndex, Byte Value) {
+void Memory::WriteAtCell(int cellIndex, MLByte Value) {
     cells[cellIndex].SetByte(Value.GetByte());
 }
 
-Byte Memory::GetCellAtIndex(int index) {
+MLByte Memory::GetCellAtIndex(int index) {
     return cells[index];
 }
