@@ -14,7 +14,15 @@ void Memory::Initialize(Byte *c,int memoryCells) {
         else{ break;}
     }
 }
+void Memory::Initialize_at_Adress(Byte *c,int memoryCells,int Cell_Index){
+    int temp=Cell_Index;
+    for(int k=0;k<memoryCells;k++ ){
+        cells[temp]=*c;
+        c++;
+        temp++;
 
+    }
+}
 void Memory::Clear() {
     for (Byte & b : cells){
         b.SetByte(0);
