@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 
 
 #include "../Headers/InstructionRegister.h"
@@ -7,6 +7,7 @@
 
 InstructionRegister::InstructionRegister() {
     instruction = new DefaultInstruction();
+    instructions['0'] = new DefaultInstruction();
     instructions['1'] = new Instruction1();
     instructions['2'] = new Instruction2();
     instructions['3'] = new Instruction3();

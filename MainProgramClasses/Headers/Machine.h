@@ -5,6 +5,7 @@
 #include "Memory.h"
 #include "../../Utilities/NumbersConvertor.h"
 #include "../../SmallClasses/Headers/MLByte.h"
+#include <vector>
 #include <iostream>
 using namespace std;
 
@@ -15,8 +16,8 @@ private:
 public:
     Machine(); // initialize the CPU and memory
     void InitializeCPU();
-    void InitializeMemory(vector <string>);
-    void InitializeMemory(vector <string>,int startAddress);
+    void InitializeMemory(const vector <string>& input);
+    void InitializeMemory(const vector <string>& input,int startAddress);
     CPU * GetCPU();
 };
 

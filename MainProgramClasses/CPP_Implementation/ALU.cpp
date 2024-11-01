@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/ALU.h"
 
 MLByte ALU::add(MLByte a, MLByte b){

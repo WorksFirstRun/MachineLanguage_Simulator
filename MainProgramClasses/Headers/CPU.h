@@ -29,6 +29,7 @@ public:
     void RunOneCycle();
     void TerminateProgram();
     bool isTerminated();
+    void SetTerminated(bool);
     ~CPU();
 };
 

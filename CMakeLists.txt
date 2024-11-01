@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 
 set(HEADER_FILES
-        SmallClasses/Headers/Byte.h
+        SmallClasses/Headers/MLByte.h
         SmallClasses/Headers/Screen.h
         MainProgramClasses/Headers/Memory.h
         MainProgramClasses/Headers/Register.h
@@ -21,10 +21,11 @@ set(HEADER_FILES
         MainProgramClasses/Headers/Machine.h
         MainProgramClasses/Headers/Instruction.h
         Utilities/NumbersConvertor.h
+        pch.h
 )
 
 set(SOURCE_FILES
-        SmallClasses/CPP_Implementation/Byte.cpp
+        SmallClasses/CPP_Implementation/MLByte.cpp
         SmallClasses/CPP_Implementation/Screen.cpp
         MainProgramClasses/CPP_Implementation/Memory.cpp
         MainProgramClasses/CPP_Implementation/Register.cpp

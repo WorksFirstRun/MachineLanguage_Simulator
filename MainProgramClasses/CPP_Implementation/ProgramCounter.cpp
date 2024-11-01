@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/ProgramCounter.h"
 #include "../Headers/CPU.h"
 

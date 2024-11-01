@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/CPU.h"
 
 
@@ -47,6 +47,11 @@ bool CPU::isTerminated()
     return endOfCycle;
 }
 
+void CPU::SetTerminated(bool value)
+{
+    endOfCycle = value;
+}
+
 Screen &CPU::GetScreen() {
     return screen;
 }
@@ -59,6 +64,9 @@ void CPU::RunEntireCycle() {
     while(!endOfCycle){
         MLByte first = cu.GetProgramCounter().Fetch();
         MLByte second = cu.GetProgramCounter().Fetch();
+        if (endOfCycle){
+            break;
+        }
         if (!first.GetByte() && !second.GetByte()){
             continue;
         }

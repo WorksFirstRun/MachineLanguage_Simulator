@@ -1,7 +1,7 @@
 //
 // Created by toose on 10/23/2024.
 //
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/Register.h"
 
 MLByte Register::GetByte() {

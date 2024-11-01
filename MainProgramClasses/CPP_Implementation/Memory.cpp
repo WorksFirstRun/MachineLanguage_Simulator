@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/Memory.h"
 Memory::Memory(){
     for(int i=0;i<256;i++){

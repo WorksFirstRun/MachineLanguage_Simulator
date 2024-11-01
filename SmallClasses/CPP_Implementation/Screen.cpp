@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "../../pch.h"
 #include "../Headers/Screen.h"
 #include "../../Utilities/NumbersConvertor.h"
 
@@ -23,7 +23,7 @@ char Screen::GetPrintedValue()
     return printedValue;
 }
 
-Screen::Screen() : printedValue(NULL)
+Screen::Screen() : printedValue(0)
 {
 	
 }
