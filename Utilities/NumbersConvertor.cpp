@@ -1,3 +1,4 @@
+#include "../pch.h"
 #include <sstream>
 #include "NumbersConvertor.h"
 

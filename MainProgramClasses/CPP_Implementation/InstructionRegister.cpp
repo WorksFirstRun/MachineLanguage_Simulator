@@ -1,3 +1,4 @@
+#include "../../pch.h"
 
 
 #include "../Headers/InstructionRegister.h"
@@ -6,6 +7,7 @@
 
 InstructionRegister::InstructionRegister() {
     instruction = new DefaultInstruction();
+    instructions['0'] = new DefaultInstruction();
     instructions['1'] = new Instruction1();
     instructions['2'] = new Instruction2();
     instructions['3'] = new Instruction3();
@@ -21,7 +23,7 @@ InstructionRegister::InstructionRegister() {
     instructions['d']=  new InstructionD();
 }
 
-void InstructionRegister::Decode(char operand, Byte R, Byte XY) {
+void InstructionRegister::Decode(char operand, MLByte R, MLByte XY) {
     instruction = instructions[operand];
     instruction->InitializeInstruction(R,XY);
 }

@@ -6,10 +6,13 @@
 using namespace std;
 
 class Screen {
+private:
+    char printedValue;
 public:
     Screen();
-    char PrintValueToTerminal(string value);
+    void PrintValueToTerminal(string value);
     void PrintValueToFile(string value,string fileName);
+    char GetPrintedValue();
 };
 
 

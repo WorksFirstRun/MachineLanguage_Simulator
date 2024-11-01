@@ -7,14 +7,14 @@
 
 class ALU {
 public:
-    static Byte add(Byte a, Byte b);
-    static Byte FloatingPointAdd(Byte a,Byte b);
-    static Byte Bitwise_Or(Byte a, Byte b);
-    static Byte Bitwise_And(Byte a, Byte b);
-    static Byte Xor(Byte a, Byte b);
+    static MLByte add(MLByte a, MLByte b);
+    static MLByte FloatingPointAdd(MLByte a,MLByte b);
+    static MLByte Bitwise_Or(MLByte a, MLByte b);
+    static MLByte Bitwise_And(MLByte a, MLByte b);
+    static MLByte Xor(MLByte a, MLByte b);
     static unsigned int Right_cycle(unsigned int a,int steps);
-    static bool areBothEqual(Byte a, Byte b);
-    static bool IsBigger(Byte a, Byte b);
+    static bool areBothEqual(MLByte a, MLByte b);
+    static bool IsBigger(MLByte a, MLByte b);
 };
 
 

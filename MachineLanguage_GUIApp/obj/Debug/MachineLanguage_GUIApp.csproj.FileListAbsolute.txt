@@ -8,3 +8,7 @@ D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.csproj
 D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.exe
 D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.pdb
 D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.Form1.resources
+D:\RiderSolutions\MachineLanguage_GUIApp\bin\Debug\MachineLanguageSimulatorLogicLibrary.dll
+D:\RiderSolutions\MachineLanguage_GUIApp\bin\Debug\MachineLanguageSimulatorLogicLibrary.pdb
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineL.A481DDAB.Up2Date
+D:\RiderSolutions\MachineLanguage_GUIApp\obj\Debug\MachineLanguage_GUIApp.InputForm.resources

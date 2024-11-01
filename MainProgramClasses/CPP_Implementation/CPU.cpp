@@ -1,10 +1,10 @@
-
+#include "../../pch.h"
 #include "../Headers/CPU.h"
 
 
 CPU * CPU::Instance = nullptr;
 
-CPU::CPU(Memory &mem, Screen &scr,ControlUnit & c) : memory(mem), screen(scr), cu(c) {
+CPU::CPU(Memory &mem, Screen &scr,ControlUnit & c) : memory(mem), screen(scr), cu(c) , endOfCycle(false){
 }
 
 
@@ -39,7 +39,17 @@ ControlUnit &CPU::GetControlUnit() {
 
 void CPU::TerminateProgram() {
     // maybe send a message to the screen or something
-    exit(0);
+    endOfCycle = true;
+}
+
+bool CPU::isTerminated()
+{
+    return endOfCycle;
+}
+
+void CPU::SetTerminated(bool value)
+{
+    endOfCycle = value;
 }
 
 Screen &CPU::GetScreen() {
@@ -51,9 +61,12 @@ CPU::~CPU() {
 }
 
 void CPU::RunEntireCycle() {
-    while(true){
-        Byte first = cu.GetProgramCounter().Fetch();
-        Byte second = cu.GetProgramCounter().Fetch();
+    while(!endOfCycle){
+        MLByte first = cu.GetProgramCounter().Fetch();
+        MLByte second = cu.GetProgramCounter().Fetch();
+        if (endOfCycle){
+            break;
+        }
         if (!first.GetByte() && !second.GetByte()){
             continue;
         }
@@ -64,4 +77,16 @@ void CPU::RunEntireCycle() {
         cu.ExecuteInstruction();
     }
 };
+
+void CPU::RunOneCycle() {
+    MLByte first = cu.GetProgramCounter().Fetch();
+    MLByte second = cu.GetProgramCounter().Fetch();
+    if (!(!first.GetByte() && !second.GetByte())) {
+        char operand = first.GetByteInHex()[0];
+        cu.GetInstructionRegister().Decode(operand, first, second);
+
+        cu.ExecuteInstruction();
+    }
+    
+}
 

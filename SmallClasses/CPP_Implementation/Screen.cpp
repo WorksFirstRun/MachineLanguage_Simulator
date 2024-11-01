@@ -1,10 +1,10 @@
+#include "../../pch.h"
 #include "../Headers/Screen.h"
 #include "../../Utilities/NumbersConvertor.h"
 
-char Screen::PrintValueToTerminal(string value) {
-    char v = (char) NumbersConvertor::RepresentHexAsInteger(value);
+void Screen::PrintValueToTerminal(string value) {
+    printedValue = (char) NumbersConvertor::RepresentHexAsInteger(value);
     cout << (char) NumbersConvertor::RepresentHexAsInteger(value) << endl;
-    return v;
 }
 
 void Screen::PrintValueToFile(string value, string fileName) {
@@ -18,4 +18,12 @@ void Screen::PrintValueToFile(string value, string fileName) {
     }
 }
 
-Screen::Screen() = default;
+char Screen::GetPrintedValue()
+{
+    return printedValue;
+}
+
+Screen::Screen() : printedValue(0)
+{
+	
+}
