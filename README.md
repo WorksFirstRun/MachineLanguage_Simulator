@@ -37,6 +37,6 @@ The floating-point representation of instruction number 6 (`6RST`: Add the conte
 
 
 this app made by :
-Mohamed Adel Kamal (email) raynowing007@gmail.com
-Mark Amir Samir (email) markamir415@gmail.com
-Anton Zakaria Ezzat (email) antonzekoo@gmail.com
+# Mohamed Adel Kamal (email) raynowing007@gmail.com
+# Mark Amir Samir (email) markamir415@gmail.com
+# Anton Zakaria Ezzat (email) antonzekoo@gmail.com
