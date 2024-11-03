@@ -68,6 +68,7 @@
             this.txtPC = new System.Windows.Forms.TextBox();
             this.txtIR = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.TitleBar.SuspendLayout();
             this.DataGrp.SuspendLayout();
             this.grpRegisters.SuspendLayout();
@@ -519,12 +520,23 @@
             this.button2.Text = "Decode";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(77, 656);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1063, 21);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "this app was developed in Faculty of Computers and Artificial intelligince, Cairo" + " University as part of CS213 under supervision of Dr. Mohamed El-Ramly.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1177, 652);
+            this.ClientSize = new System.Drawing.Size(1177, 676);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.grpHold);
             this.Controls.Add(this.grbScreen);
             this.Controls.Add(this.DataGrp);
@@ -545,6 +557,8 @@
             this.grpDescription.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label2;
 
         private System.Windows.Forms.Button btnTogglePrintChars;
 

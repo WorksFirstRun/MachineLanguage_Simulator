@@ -5,8 +5,8 @@ using namespace std;
 
 
 int main(){
-    int t=6;//number of instruction
-    Byte input[12];
+    int t=11;//number of instruction
+    MLByte input[22];
     int j = 0;
     for(int i=0;i<t;i++){
         string in;
@@ -18,7 +18,7 @@ int main(){
         j++;
     }
     CPU *cpu = CPU::GetInstance();
-    cpu->GetMemory().Initialize(input,t * 2);
+    cpu->GetMemory().Initialize_at_Adress(input,t * 2,10);
     cpu->GetControlUnit().GetProgramCounter().SetStartingAddress(0);
 
     cpu->RunEntireCycle();

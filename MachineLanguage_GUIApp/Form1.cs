@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MachineLanguageSimulatorLogicLibrary;
 
@@ -110,7 +105,7 @@ namespace MachineLanguage_GUIApp
         #region MLFunctions
 
 
-        private void initalizeMemory(List<string> userInput)
+        private void initalizeMemory(List<string> userInput,int startMemoryAddress)
         {
             ML.ClearMemory();
             for (int i = 0 ; i < userInput.Count ; i++)
@@ -118,7 +113,9 @@ namespace MachineLanguage_GUIApp
                 userInput[i] = userInput[i].ToLower();
             }
 
-            while (userInput.Count < 128)
+            float sMA = (float)startMemoryAddress;
+
+            while (userInput.Count < 128 - decimal.Ceiling((decimal) (sMA / 2)))
             {
                 userInput.Add("0000");
             }
@@ -130,7 +127,7 @@ namespace MachineLanguage_GUIApp
                 instructions.Add(s.Substring(2));
             }
             
-            ML.InitializeMemory(instructions);
+            ML.InitializeMemory(instructions,startMemoryAddress);
             LoadMemoryListView();
         }
 
@@ -201,6 +198,7 @@ namespace MachineLanguage_GUIApp
                 return;
             }
             operand =  memoryCell1[0];
+            
             
             ML.InstructionRegisterDecode((sbyte) operand,memoryCell1,memoryCell2);
             
@@ -294,7 +292,7 @@ namespace MachineLanguage_GUIApp
 
             if (inputForm.IsInputSaved())
             {
-                initalizeMemory(inputForm.GetUserInputInstructions());
+                initalizeMemory(inputForm.GetUserInputInstructions(),inputForm.GetMemoryLocation());
                 isProgramTerminated = false;
                 haltLocation = inputForm.GetHaltLocation();
                 ML.SetisTerminated(false);
@@ -364,6 +362,7 @@ namespace MachineLanguage_GUIApp
                }
                
             }
+            
             MessageBox.Show("program finished, reload the instruction to run it again", "program finished");
         }
 
@@ -397,6 +396,10 @@ namespace MachineLanguage_GUIApp
             Dictionary<char, Action> WriteDescription = new Dictionary<char, Action>()
             {
                 {
+                  '0',() => {}  
+                },
+                {
+                    
                     '1', () =>
                     {
                         lbCode.Text = "1RXY";
@@ -539,7 +542,7 @@ namespace MachineLanguage_GUIApp
                     }
                 }
             };
-
+            
             WriteDescription[operand]();
         }
 

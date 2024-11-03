@@ -11,6 +11,9 @@ namespace MachineLanguage_GUIApp
         private bool saveInputData;
         private List<string> userInstructionsInput = new List<string>();
         private int haltLocation;
+        private string prevMemoryAddressValue;
+        private string currentMemoryAddressValue;
+        private float startMemoryAddress;
         
         public InputForm()
         {
@@ -44,6 +47,7 @@ namespace MachineLanguage_GUIApp
             if (ableToSave)
             {
                 saveInputData = !saveInputData;
+                txtMemoryAddress.Enabled = !txtMemoryAddress.Enabled;
                 btnSaveInput.BackColor = saveInputData == true ? Color.Green : default;
                 userInstructionsInput = userInput;
             }
@@ -101,7 +105,7 @@ namespace MachineLanguage_GUIApp
             List<string> substrings = SplitIntoSubstrings(txtInput.Text);
             userInput = substrings;
             
-            if (substrings.Count > 128)
+            if (substrings.Count > (128 - decimal.Ceiling((decimal) (startMemoryAddress / 2))))
             {
                 MessageBox.Show("instruction input is too large, make sure its only 256 cell input",
                     "Input is too large", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -154,7 +158,7 @@ namespace MachineLanguage_GUIApp
                         return false;
                     }
 
-                    this.haltLocation = haltLocation;
+                    this.haltLocation = haltLocation + (int)(startMemoryAddress);
                     break;
                 }
             }
@@ -229,6 +233,72 @@ namespace MachineLanguage_GUIApp
         public int GetHaltLocation()
         {
             return haltLocation;
+        }
+
+        public int GetMemoryLocation()
+        {
+            return (int)startMemoryAddress;
+        }
+
+        private bool TryChangeMemoryAddress(string value,out int position)
+        {
+            int pos = 0;
+            List<char> validCharacters = new List<char>()
+            {
+                '0',
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                'A',
+                'B',
+                'C',
+                'D',
+                'E',
+                'F',
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f'
+            };
+            
+            if (validCharacters.Contains(value[0]) && validCharacters.Contains(value[1]))
+            {
+                position = Convert.ToInt32(value, 16);
+                return true;
+            }
+
+            position = pos;
+            return false;
+        }
+        
+
+        private void txtPC_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMemoryAddress.Text.Length == 2)
+            {
+                if (!TryChangeMemoryAddress(txtMemoryAddress.Text, out int pos))
+                {
+                    txtMemoryAddress.Text = prevMemoryAddressValue;
+                }
+                else
+                {
+                    prevMemoryAddressValue = txtMemoryAddress.Text;
+                    startMemoryAddress = pos;
+                }
+            }
+        }
+
+        private void txtPC_Enter(object sender, EventArgs e)
+        {
+            prevMemoryAddressValue = txtMemoryAddress.Text;
         }
     }
 }
