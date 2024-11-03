@@ -1,4 +1,3 @@
-Here is the corrected version of the text:
 
 # MachineLanguage_Simulator
 
